@@ -1,0 +1,66 @@
+﻿@page
+@model TruckLoadingsApp.Pages.Reports.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Report[0].Assignments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Report[0].LoadingStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Report[0].TruckUtilization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Report[0].Format)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Report[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Report[0].Truck)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Report) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assignments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadingStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TruckUtilization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Format)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Truck.Axload)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ReportId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ReportId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ReportId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

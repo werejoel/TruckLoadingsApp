@@ -1,0 +1,75 @@
+﻿@page
+@model TruckLoadingsApp.Pages.CargoItems.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CargoItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CargoItem.ItemId" />
+            <div class="form-group">
+                <label asp-for="CargoItem.Weight" class="control-label"></label>
+                <input asp-for="CargoItem.Weight" class="form-control" />
+                <span asp-validation-for="CargoItem.Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoItem.Fragility" class="control-label"></label>
+                <select asp-for="CargoItem.Fragility" class="form-control"></select>
+                <span asp-validation-for="CargoItem.Fragility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoItem.Category" class="control-label"></label>
+                <input asp-for="CargoItem.Category" class="form-control" />
+                <span asp-validation-for="CargoItem.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoItem.Quantity" class="control-label"></label>
+                <input asp-for="CargoItem.Quantity" class="form-control" />
+                <span asp-validation-for="CargoItem.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoItem.Source" class="control-label"></label>
+                <input asp-for="CargoItem.Source" class="form-control" />
+                <span asp-validation-for="CargoItem.Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoItem.Destination" class="control-label"></label>
+                <input asp-for="CargoItem.Destination" class="form-control" />
+                <span asp-validation-for="CargoItem.Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoItem.Dimensions" class="control-label"></label>
+                <input asp-for="CargoItem.Dimensions" class="form-control" />
+                <span asp-validation-for="CargoItem.Dimensions" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CargoItem.HazardousMaterial" /> @Html.DisplayNameFor(model => model.CargoItem.HazardousMaterial)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoItem.RequestId" class="control-label"></label>
+                <input asp-for="CargoItem.RequestId" class="form-control" />
+                <span asp-validation-for="CargoItem.RequestId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

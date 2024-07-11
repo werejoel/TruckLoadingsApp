@@ -1,0 +1,48 @@
+﻿@page
+@model TruckLoadingsApp.Pages.TruckTrips.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TruckTrip[0].StatingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TruckTrip[0].EndingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TruckTrip[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TruckTrip) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TripId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TripId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TripId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

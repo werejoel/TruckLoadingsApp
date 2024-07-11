@@ -1,0 +1,60 @@
+﻿@page
+@model TruckLoadingsApp.Pages.RoutePlans.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoutePlan[0].RouteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoutePlan[0].PostTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoutePlan[0].EstimatedTimeTravel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoutePlan[0].Distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoutePlan[0].Truck)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RoutePlan) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RouteName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedTimeTravel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Truck.Axload)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RouteId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RouteId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RouteId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

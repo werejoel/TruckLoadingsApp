@@ -1,0 +1,67 @@
+﻿@page
+@model TruckLoadingsApp.Pages.CargoRequests.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CargoRequest</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.TransportionRequirements)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.TransportionRequirements)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.Quantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.Source)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.Source)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.Destination)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.Destination)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.PickUpDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.PickUpDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.DeliveryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.DeliveryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CargoRequest.Client)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CargoRequest.Client.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.CargoRequest.RequestId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

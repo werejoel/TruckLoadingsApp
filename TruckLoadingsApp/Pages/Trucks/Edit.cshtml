@@ -1,0 +1,100 @@
+﻿@page
+@model TruckLoadingsApp.Pages.Trucks.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Truck</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Truck.TruckId" />
+            <div class="form-group">
+                <label asp-for="Truck.Type" class="control-label"></label>
+                <select asp-for="Truck.Type" class="form-control"></select>
+                <span asp-validation-for="Truck.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.Axload" class="control-label"></label>
+                <input asp-for="Truck.Axload" class="form-control" />
+                <span asp-validation-for="Truck.Axload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.Brand" class="control-label"></label>
+                <input asp-for="Truck.Brand" class="form-control" />
+                <span asp-validation-for="Truck.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.Model" class="control-label"></label>
+                <input asp-for="Truck.Model" class="form-control" />
+                <span asp-validation-for="Truck.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.RegistrationNumber" class="control-label"></label>
+                <input asp-for="Truck.RegistrationNumber" class="form-control" />
+                <span asp-validation-for="Truck.RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.MinWeight" class="control-label"></label>
+                <input asp-for="Truck.MinWeight" class="form-control" />
+                <span asp-validation-for="Truck.MinWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.MaxWeight" class="control-label"></label>
+                <input asp-for="Truck.MaxWeight" class="form-control" />
+                <span asp-validation-for="Truck.MaxWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.Size" class="control-label"></label>
+                <input asp-for="Truck.Size" class="form-control" />
+                <span asp-validation-for="Truck.Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.Capacity" class="control-label"></label>
+                <input asp-for="Truck.Capacity" class="form-control" />
+                <span asp-validation-for="Truck.Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Truck.Availability" /> @Html.DisplayNameFor(model => model.Truck.Availability)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.Location" class="control-label"></label>
+                <input asp-for="Truck.Location" class="form-control" />
+                <span asp-validation-for="Truck.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.Status" class="control-label"></label>
+                <select asp-for="Truck.Status" class="form-control"></select>
+                <span asp-validation-for="Truck.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Truck.DriverId" class="control-label"></label>
+                <select asp-for="Truck.DriverId" class="form-control" asp-items="ViewBag.DriverId"></select>
+                <span asp-validation-for="Truck.DriverId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Truck.isDeleted" /> @Html.DisplayNameFor(model => model.Truck.isDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

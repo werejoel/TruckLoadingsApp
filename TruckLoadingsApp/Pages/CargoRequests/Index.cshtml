@@ -1,0 +1,78 @@
+﻿@page
+@model TruckLoadingsApp.Pages.CargoRequests.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].TransportionRequirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].PickUpDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].DeliveryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoRequest[0].Client)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CargoRequest) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransportionRequirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickUpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RequestId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RequestId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RequestId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

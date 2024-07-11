@@ -1,0 +1,114 @@
+﻿@page
+@model TruckLoadingsApp.Pages.Trucks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Axload)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].RegistrationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].MinWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].MaxWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Availability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].Driver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Truck[0].isDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Truck) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Axload)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Availability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Driver.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isDeleted)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TruckId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TruckId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TruckId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
